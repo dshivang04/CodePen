@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Editor from './Editor'
-import useLocalStorage from '../hooks/useLocalStorage'
+import Editor from './Editor';
+import useLocalStorage from '../hooks/useLocalStorage';
+import './App.css';
 
 function App() {
   const [html, setHtml] = useLocalStorage('html', '')
@@ -24,12 +25,21 @@ function App() {
 
   return (
     <>
+      <nav class="topnav">
+        <ln><img src="favicon.ico" ></img></ln>
+        <ln id="ln2"><a href='#'> CodePen Clone! </a></ln>
+        <ln>
+          <a id='linkedin' href="https://www.linkedin.com/in/dshivang04/"><img src="linkedin.png"></img></a>
+        </ln>
+      </nav>
+
       <div className="pane top-pane">
         <Editor
           language="xml"
           displayName="HTML"
           value={html}
           onChange={setHtml}
+
         />
         <Editor
           language="css"

@@ -1,0 +1,35 @@
+body {margin: 0;}
+
+nav.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  size: 100px;
+}
+
+nav.topnav ln {float: left;}
+
+
+
+nav.topnav ln a {
+  color: rgba(255, 255, 255, 0.918);
+  text-align: center;
+  text-decoration: none;
+  font-size: xxx-large;
+}
+
+
+nav.topnav ln a.active {background-color: #04AA6D;}
+
+nav.topnav ln.right {float: right;}
+
+@media screen and (max-width: 600px) {
+  nav.topnav ln.right, 
+  nav.topnav ln {float: none;}
+}
+
+#ln2{
+  margin-right:70%;
+}

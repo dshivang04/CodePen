@@ -4,6 +4,7 @@ import 'codemirror/theme/material.css'
 import 'codemirror/mode/xml/xml'
 import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/css/css'
+import './Editor.css'
 import { Controlled as ControlledEditor } from 'react-codemirror2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons'
@@ -13,12 +14,17 @@ export default function Editor(props) {
     language,
     displayName,
     value,
-    onChange
+    onChange,
+    setHtml
   } = props
   const [open, setOpen] = useState(true)
 
   function handleChange(editor, data, value) {
     onChange(value)
+  }
+
+  function clear(editor, data, value){
+    onChange('')
   }
 
   return (
@@ -32,7 +38,7 @@ export default function Editor(props) {
         >
           <FontAwesomeIcon icon={open ? faCompressAlt : faExpandAlt} />
         </button>
-      </div>
+        </div>
       <ControlledEditor
         onBeforeChange={handleChange}
         value={value}
@@ -45,6 +51,7 @@ export default function Editor(props) {
           lineNumbers: true
         }}
       />
+      <button role="button" class="button-name" onClick={clear}>Clear {displayName}</button>
     </div>
   )
 }
